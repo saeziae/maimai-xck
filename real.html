@@ -84,9 +84,9 @@
         " " +
         d.getHours() +
         ":" +
-        d.getMinutes(F) +
+        +("0" + d.getMinutes()).slice(-2) +
         ":" +
-        d.getSeconds();
+        ("0" + d.getSeconds()).slice(-2);
     </script>
   </body>
 </html>
