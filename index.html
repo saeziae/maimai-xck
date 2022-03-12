@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html class="h-100" lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>舞萌大数据行程卡</title>
+    <link href="assets/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      p {
+        color: white;
+      }
+    </style>
+  </head>
+  <body class="d-flex flex-column h-100">
+    <main style="background-color: #2ba667">
+      <div class="container-fluid">
+        <div align="center">
+          <img src="assets/header.png" />
+          <div class="card" style="width: 18rem">
+            <img
+              src="data:image/png;base64,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"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <strong>114****1919的动态行程卡<br /></strong>
+              <strong class="text-muted"
+                >更新于：<span id="time"></span
+              ></strong>
+              <img src="assets/gif_green.gif" />
+              <hr />
+              <div style="text-align: left">
+                <strong
+                  ><span class="text-muted">您于前十四天内到达或途径：</span
+                  >咻哇咻哇区域，天界区域</strong
+                >
+              </div>
+            </div>
+          </div>
+          <div style="margin-top: 30px; margin-bottom: 30px">
+            <p class="small">
+              结果包含您在前14天内到访的区域与停留4PC以上的国行区域
+              <br />色卡仅对到访地作提醒，不关联健康状况
+            </p>
+            <p>————————— 本服务联合提供 —————————</p>
+            <img style="width: 28rem" src="assets/footer.png" />
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer" style="background-color: white">
+      <div class="row justify-content-between" style="margin: 10px">
+        <div class="col-6">
+          <div style="font-weight: bold">一证通查来了！</div>
+          <div style="font-size: 0.8rem">立即点击进入</div>
+        </div>
+        <div
+          class="col-6"
+          style="
+            background-color: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
+            border-radius: 0.5rem;
+            width: 14rem;
+          "
+        >
+          <div style="font-weight: bold">全国移动电话卡“⼀证通查”</div>
+          <div style="font-size: 0.8rem">防范诈骗，保护你我</div>
+        </div>
+      </div>
+    </footer>
+    <script src="assets/bootstrap.bundle.min.js"></script>
+    <script>
+      var d = new Date();
+      document.getElementById("time").innerHTML =
+        d.getFullYear() +
+        "." +
+        d.getMonth() +
+        "." +
+        d.getDate() +
+        " " +
+        d.getHours() +
+        ":" +
+        d.getMinutes() +
+        ":" +
+        d.getSeconds();
+    </script>
+  </body>
+</html>
