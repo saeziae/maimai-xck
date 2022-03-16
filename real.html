@@ -87,7 +87,7 @@
         +("0" + d.getMinutes()).slice(-2) +
         ":" +
         ("0" + d.getSeconds()).slice(-2);
-      document.getElementById("loc").innerHTML = window.location.search.substring(1);
+      document.getElementById("loc").innerHTML = decodeURIComponent(window.location.search.substring(1));
     </script>
   </body>
 </html>
