@@ -32,7 +32,7 @@
               <div style="text-align: left">
                 <strong
                   ><span class="text-muted">您于前14天内到达或途径：</span
-                  >无锡市, 苏州市</strong
+                  ><span id="loc"></span></strong
                 >
               </div>
             </div>
@@ -87,6 +87,7 @@
         +("0" + d.getMinutes()).slice(-2) +
         ":" +
         ("0" + d.getSeconds()).slice(-2);
+      document.getElementById("loc").innerHTML = window.location.search.substring(1);
     </script>
   </body>
 </html>
