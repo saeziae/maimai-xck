@@ -22,7 +22,7 @@
               class="card-img-top"
             />
             <div class="card-body">
-              <strong>114***1919的动态行程卡<br /></strong>
+              <strong><span id="pho"></span>的动态行程卡<br /></strong>
               <strong class="text-muted"
                 >更新于：<span id="time"></span
               ></strong>
@@ -30,9 +30,9 @@
               <hr />
               <div style="text-align: left">
                 <strong
-                  ><span class="text-muted">您于前十四天内到达或途径：</span
-                  >咻哇咻哇区域，天界区域</strong
-                >
+                  ><span class="text-muted">您于前14天内到达或途径：</span
+                  ><span id="loc"></span
+                ></strong>
               </div>
             </div>
           </div>
@@ -76,7 +76,7 @@
       document.getElementById("time").innerHTML =
         d.getFullYear() +
         "." +
-        d.getMonth() +
+        (d.getMonth() + 1) +
         "." +
         d.getDate() +
         " " +
