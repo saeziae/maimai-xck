@@ -66,7 +66,7 @@
                 </div>
                 <div data-v-77732afa="" class="list">
                   <span data-v-77732afa="">身份证号:</span
-                  ><span data-v-77732afa=""id="id"></span>
+                  ><span data-v-77732afa="" id="id"></span>
                 </div>
               </div>
             </div>
@@ -213,7 +213,6 @@
         let key_val_arr = key_val.split("=");
         params[key_val_arr[0]] = decodeURIComponent(key_val_arr[1]);
       });
-      document.getElementById("inst").innerHTML = params["inst"];
       document.getElementById("name").innerHTML = params["name"];
       document.getElementById("loca").innerHTML = params["loca"];
       document.getElementById("id").innerHTML = params["id"];
