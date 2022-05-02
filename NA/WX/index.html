@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      .HotDate span {
+        color: blue;
+      }
+      .box {
+        display: flex;
+        border-radius: 5px;
+      }
+      .left {
+        padding: 1em;
+        color: white;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+      }
+      .blue {
+        background-color: #e2eefc;
+      }
+      .blue .left {
+        background-color: #2983e4;
+      }
+      .blue .right {
+        padding: 1em;
+        width: 100%;
+      }
+      .blue table {
+        color: gray;
+        width: 100%;
+        height: 100%;
+      }
+      .green {
+        background-color: #e9f9ef;
+      }
+      .green .left {
+        background-color: #029733;
+      }
+      .green .right {
+        color: #029733;
+        padding: 1em;
+        width: 100%;
+      }
+      big {
+        font-size: 1.8em;
+      }
+      .green span {
+        color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <div align="center" class="HotDate">
+      扫码有效期：<span id="t_m">00:</span><span id="t_s">00</span>
+    </div>
+    <br />
+    <div class="box blue">
+      <div class="left">门<br />铃<br />码</div>
+      <div class="right">
+        <table style="width: 100%">
+          <tr>
+            <td align="left">场所：</td>
+            <td align="right" id="loca">0000</td>
+          </tr>
+          <tr>
+            <td align="left">时间：</td>
+            <td align="right" id="time">0000</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <br />
+    <div class="box">
+      <div style="width: 49%; margin-right: 1%" class="box green">
+        <div class="left">核<br />酸<br />检<br />测</div>
+        <div class="right" align="center">
+          （48小时以内）<br /><big>阴性</big><br />
+          <span id="time1"></span>
+        </div>
+      </div>
+      <div style="width: 49%; margin-left: 1%" class="box green">
+        <div class="left">新<br />冠<br />疫<br />苗</div>
+        <div class="right" align="center">
+          （接种满14天）<br /><big>阴性</big><br />
+          <span>2021/11/31</span>
+        </div>
+      </div>
+    </div>
+    *数据来源：无锡市卫生健康委员会，反映近期核酸及咕噜咕噜，为保障查看时的流畅，咕噜检测7天内结果正常现实，部分咕噜咕噜近期暂不显示，后期将恢复。
+    <script type="text/javascript">
+      var d = new Date();
+      document.getElementById("time").innerHTML =
+        d.getFullYear() +
+        "/" +
+        (d.getMonth() + 1) +
+        "/" +
+        d.getDate() +
+        " " +
+        d.getHours() +
+        ":" +
+        ("0" + d.getMinutes()).slice(-2) +
+        ":" +
+        ("0" + d.getSeconds()).slice(-2);
+      d.setTime(d.getTime() - 86516000);
+      document.getElementById("time1").innerHTML =
+        d.getFullYear() +
+        "/" +
+        (d.getMonth() + 1) +
+        "/" +
+        d.getDate() +
+        " " +
+        d.getHours() +
+        ":" +
+        ("0" + d.getMinutes()).slice(-2) +
+        ":" +
+        ("0" + d.getSeconds()).slice(-2);
+      let query = window.location.search.substring(1);
+      document.getElementById("loca").innerHTML = decodeURIComponent(query);
+      var t = 120000;
+      function getRTime() {
+        t = t - 1000;
+        var m = Math.floor((t / 1000 / 60) % 60);
+        var s = Math.floor((t / 1000) % 60);
+        document.getElementById("t_m").innerHTML = m + ":";
+        document.getElementById("t_s").innerHTML = s;
+      }
+      setInterval(getRTime, 1000);
+    </script>
+  </body>
+</html>
