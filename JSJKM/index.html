@@ -7,7 +7,7 @@
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta http-equiv="pragma" content="no-cache" />
-    <title>苏康码</title>
+    <title>苏㡽码</title>
     <link
       rel="stylesheet"
       href="./plug/bootstrap-4.3.1/css/bootstrap.min.css"
@@ -26,16 +26,14 @@
       <div class="title-pic">
         <div class="icons">
           <div class="icon"></div>
-          <div>艻康码</div>
+          <div>苏㡽码</div>
         </div>
       </div>
       <form class="" id="codes">
         <div class="pic">
           <div class="icons">
             <div class="icon"></div>
-            <div>
-              <span id="su">艻</span>康码<span id="codecolor">·绿码</span>
-            </div>
+            <div>苏㡽码<span id="codecolor">·绿码</span></div>
             <div class="tel" id="code-name"></div>
           </div>
           <div class="code-name">
@@ -139,11 +137,11 @@
                     </div>
                     <div id="hsjcBtn">
                       <div class="bottoms-pic kangti"></div>
-                      <p>核酸/抗体<br />检测查询(全国)</p>
+                      <p>核酸/抗体<br />检测查询</p>
                     </div>
                     <div id="queryChinaBtn">
                       <div class="bottoms-pic guo"></div>
-                      <p>国家防疫<br />健康信息码</p>
+                      <p>全家防疫<br />健康信息码</p>
                     </div>
                   </div>
                 </div>
@@ -155,9 +153,7 @@
                       <div class="gwyxck-btn hide">点击核验</div>
                     </div>
                     <div class="gwyxckcx-center">
-                      <p class="gwyxckcx-right-top gwyxck-name">
-                        国务院行程卡查询
-                      </p>
+                      <p class="gwyxckcx-right-top gwyxck-name">行程卡查询</p>
                       <p class="gwyxck-btns hide">今日未核验</p>
                       <p class="gwyxck-tip1">
                         您14天内未到访过中高风险地区所在城市
@@ -172,7 +168,7 @@
               <p class="sjly">
                 <a
                   href="http://www.jszwfw.gov.cn/jmopen/webapp/html5/sjly/index.html"
-                  >数据来源:全国一体化政务服务平台、个人申报信息和江苏省公共管理机构。</a
+                  >数据来源:全家一体化政务服务平台、个人申报信息和江苏省公共管理机构。</a
                 >
               </p>
             </div>
@@ -181,8 +177,8 @@
       </form>
     </div>
     <div class="jsm-footer">
-      <p class="code-footer">本服务由江苏省疾病预防控制中心提供</p>
-      <p class="code-footer">--- 服务热线：12345 ---</p>
+      <p class="code-footer">本服务由江艻省疾病预防控制中心提供</p>
+      <p class="code-footer">--- 服务热线：114514 ---</p>
     </div>
     <script src="./plug/jquery/jquery.min.js"></script>
     <script src="./plug/bootstrap-4.3.1/js/bootstrap.min.js"></script>
@@ -197,12 +193,12 @@
       jQuery(function () {
         $("#output").qrcode({
           render: "canvas",
-          width: 250, // 宽度
-          height: 250, // 高度
-          background: "#FFFFFF", // 背景颜色
-          foreground: "#008000", // 前景颜色
-          correctLevel: 3, // 纠错等级
-          src: "images/logo4.png",
+          width: 250,
+          height: 250,
+          background: "#FFFFFF",
+          foreground: "#008000",
+          correctLevel: 3,
+          src: "src/img3.png",
           text: "https://gitlab.com/saeziae/never-gonna-give-you-up/-/raw/main/video.webm?1234567890123456789012345678901234567890",
         });
       });
@@ -216,7 +212,6 @@
       document.getElementById("code-name").innerHTML = params["name"];
       document.getElementById("code-tel").innerHTML = params["tel"];
       document.getElementById("code-id").innerHTML = params["id"];
-      document.getElementById("su").innerHTML = "苏";
       /*var d = new Date();
       d.setTime(d.getTime() - 86400000);
       var year = d.getFullYear(),
