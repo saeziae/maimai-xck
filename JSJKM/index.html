@@ -33,7 +33,9 @@
         <div class="pic">
           <div class="icons">
             <div class="icon"></div>
-            <div>艻康码<span id="codecolor">·绿码</span></div>
+            <div>
+              <span id="su">艻</span>康码<span id="codecolor">·绿码</span>
+            </div>
             <div class="tel" id="code-name"></div>
           </div>
           <div class="code-name">
@@ -76,21 +78,20 @@
             <div class="slider-center">
               <div class="hsym-layout uncityData">
                 <div class="hs-layout">
-                  <div class="shadow-layout-hsym" id="hs-layout">
+                  <div
+                    class="shadow-layout-hsym hs48hours-border"
+                    id="hs-layout"
+                  >
                     <div class="hsym-title">核酸(省内)</div>
                     <div class="hsym-contont" id="hs-content">
-                      <div class="hs-result">
-                        <div>阴性</div>
-                        <div>
-                          <span id="year">2022</span><br /><span id="date"
-                            >00-00</span
-                          >
-                        </div>
+                      <div class="hs48hours">
+                        <div>48</div>
+                        <div>小时<br />阴性</div>
                       </div>
                     </div>
                     <div class="hsym-footer">
                       <div class="turn-right-icon"></div>
-                      <span id="hs-footer">右滑查看</span>
+                      <span id="hs-footer">右滑刷新</span>
                     </div>
                   </div>
                 </div>
@@ -215,15 +216,15 @@
       document.getElementById("code-name").innerHTML = params["name"];
       document.getElementById("code-tel").innerHTML = params["tel"];
       document.getElementById("code-id").innerHTML = params["id"];
-
-      var d = new Date();
+      document.getElementById("su").innerHTML = "苏";
+      /*var d = new Date();
       d.setTime(d.getTime() - 86400000);
       var year = d.getFullYear(),
         month = d.getMonth() + 1,
         date = d.getDate();
       document.getElementById("year").innerHTML = year;
       document.getElementById("date").innerHTML = month + "-" + date;
-
+*/
       var checkTime = function (i) {
         if (i < 10) {
           i = "0" + i;
