@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,viewport-fit=cover"
+    />
+    <title>苏州数字门牌</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@500&display=swap");
+
+      html {
+        background-color: white;
+        font-family: "Noto Sans SC", sans-serif;
+      }
+      p {
+        font-size: 16px;
+      }
+      #date0 {
+        color: #949494;
+      }
+      .result {
+        width: 100%;
+        margin: 20px;
+      }
+      .result td {
+        margin: 5px;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: #f8f8f8;
+        width: 50%;
+      }
+      .title {
+        font-size: 16px;
+        color: #2e2e2e;
+      }
+      .green {
+        font-size: 20px;
+        color: #229f75;
+        line-height: 2em;
+      }
+      .h72 {
+        height: 2em;
+        vertical-align: middle;
+      }
+    </style>
+  </head>
+  <body>
+    <img width="100%" src="part0.jpg" />
+    <div align="center">
+      <p id="date0">00</p>
+      <br />
+      <p style="color: #1083ff">12345热线&nbsp;&nbsp;代他人登记</p>
+      <br />
+    </div>
+    <table class="result">
+      <tr>
+        <td>
+          <span class="title">苏康码</span><br />
+          <span class="green">绿码</span>
+        </td>
+        <td>
+          <span class="title">行程卡</span><br />
+          <span class="green">当日已核验</span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <span class="title"><span id="date1">00</span> 核酸采样</span><br />
+          <span class="green">已采样</span>
+        </td>
+        <td>
+          <span class="title"><span id="date2">00</span> 核酸检测</span><br />
+          <span class="green"
+            >结果：阴性 <img class="h72" src="72h.png"
+          /></span>
+        </td>
+      </tr>
+    </table>
+    <img width="100%" src="part1.jpg" />
+    <script>
+      var checkTime = function (i) {
+        if (i < 10) {
+          i = "0" + i;
+        }
+        return i;
+      };
+      var d = new Date();
+      d.setTime(d.getTime() - 86400000);
+      var year = d.getFullYear(),
+        month = d.getMonth() + 1,
+        date = d.getDate();
+      document.getElementById("date1").innerHTML = month + "月" + date + "日";
+      document.getElementById("date2").innerHTML = month + "月" + date + "日";
+      var nowdate = new Date();
+      var year = nowdate.getFullYear(),
+        month = nowdate.getMonth() + 1,
+        date = nowdate.getDate(),
+        h = nowdate.getHours(),
+        m = nowdate.getMinutes(),
+        s = nowdate.getSeconds(),
+        h = checkTime(h),
+        m = checkTime(m),
+        s = checkTime(s);
+      document.getElementById("date0").innerHTML =
+        year + "年" + month + "月" + date + "日 " + h + ":" + m + ":" + s;
+    </script>
+  </body>
+</html>
