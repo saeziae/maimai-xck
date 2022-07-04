@@ -1,0 +1,104 @@
+// 接口基地址
+var netRoot;
+if (document.location.host == 'h5.wdjky.com' || document.location.host == 'www.wdjky.com') {
+  netRoot = '/gw/'; // 生产环境
+} else {
+  if (/wdjky.com/i.test(location.href)) {
+    netRoot = '/gw-te/' // 预发 测试 qyj-re.wdjky.com 实际上只要域名中有wdjky.com 就会匹配上
+  } else {
+    // netRoot = '/gw/' // 本地代理/ip地址 如10.1.64.194
+    netRoot = '/gw-te/' // 测试 10.1.64.195
+  }
+};
+
+var net = {
+  registerCode:netRoot + 'nad-biz-register-code', 
+  getWechatJsapiSignature:netRoot+'getWechatJsapiSignature',//获取微信相关秘钥
+  getUserInfoAddrAndCompany:netRoot + 'nad-biz-user-getUserInfoAddrAndCompany', 
+  queryRegisterInfoById: netRoot + 'nad-biz-register-queryRegisterInfoById', 
+  appGetAuthcode: netRoot + 'app-get-authcode', //accountId换取code
+
+  getFirstAddressInfo: netRoot + 'nad-api-reservation-get-from-options',
+  noPayReservation: netRoot + 'nad-save-no-pay-reservation', //线下支付
+  modifyReservation: netRoot + 'nad-modify-reservation', //修改
+
+  payAndSave: netRoot + 'nad-pay-and-save-reservation', //支付并预约
+  registerPay:netRoot + 'nad-reservation-register-pay', //登记支付接口
+  registerPayThirdPay:netRoot + 'nad-reservation-register-thirdPay', //三方登记支付接口
+
+  serviceList: netRoot + 'nad-service-list', //监测点详情
+  getCanReserveHospitalList: netRoot + 'nad-can-reserve-hospital-list', //可约监测点
+  getAllHospitals: netRoot + 'nad-all-hospitals', //全部监测点
+  companySubmit: netRoot + 'nad-api-company-submit', //企业预约
+  companySubmitEncrypted: netRoot + 'nad-api-company-submitEncrypted', //企业预约加密
+  queryAllHospital: netRoot + 'nad-api-hospital-queryAll', //所有服务点
+
+  logAction: netRoot + 'logAction', // 行为日志 埋点请求
+  getAdServiceGuidelines: netRoot + 'nad-getAdServiceGuidelines', //服务须知
+  makeOrder: netRoot + 'nad-adMakeOrder', //生成订单
+  app_get_authcode: netRoot + 'app-get-authcode', //accountId换取code
+  userAccountInfo: netRoot + 'nad-acc-api-user-masked-account', //用户信息
+  userAccountInfoNew: netRoot + 'nad-biz-user-maskedInfo', //用户信息新
+  queryAdHospital: netRoot + 'nad-queryAdHospital', //服务点查询
+  saveAdReservation: netRoot + 'nad-saveAdReservation', //预约
+  cancelAdReservation: netRoot + 'nad-cancelAdReservation', //取消预约
+
+  modifyDateAndTime: netRoot + 'nad-reservation-modifyDateAndTime', //修改预约日期和时段
+
+  newCancelAdReservation:netRoot + 'nad-reservation-cancel-paycode',
+  
+  adReservationEvaluate: netRoot + 'nad-adReservationEvaluate', //评价
+  adViewEvaluate: netRoot + 'nad-adViewEvaluate', //查看评价
+  orderList: netRoot + 'nad-adOrderList', //检测订单列表
+  orderDetail: netRoot + 'nad-adOrderDetail', //检测订单详情
+  scheduleTime: netRoot + 'nad-adScheduleTime', //预约检测时间
+  scheduleList: netRoot + 'nad-schedule-list', //号源排班-核酸检测预约
+  adOrderRefundment: netRoot + 'nad-adOrderRefundment', //退款
+  adRescindRefundment: netRoot + 'nad-adRescindRefundment', //撤销申请退款
+  adGetSdkPayParams: netRoot + 'nad-adGetSdkPayParams', //获取SDK支付参数
+  adQueryPayStatus: netRoot + 'nad-adQueryPayStatus', //查询支付状态
+  getMealDetail: netRoot + 'nad-adServiceMealList', //获取套餐信息
+  applyInvoice: netRoot + 'nad-acc-order-make-invoice', //申请开票
+  checkIn: netRoot + 'nad-reservation-confirm', //到捡
+  getAllReports: netRoot + 'nad-inspect-report-list', //获取报告
+  getReportImg: netRoot + 'nad-inspect-report-image-url', //获取报告详情
+
+  registerSubmit: netRoot + 'nad-biz-register-submit', //个人信息登记
+  registerSubmitEncrypted: netRoot + "nad-biz-register-submitEncrypted",//个人信息登记加密
+  registerList: netRoot + 'nad-biz-register-list', //查询登记列表
+  registerCancel: netRoot + 'nad-biz-register-cancel', //取消登记
+  queryDetail: netRoot + 'nad-biz-register-query-detail', //查询详情
+
+  getRegisterDetail:netRoot + 'nad-biz-register-query-detail', //成功页登记详情
+
+  queryReport: netRoot + 'nad-biz-query-report', //获取报告（登记版本）
+  nationalityList: netRoot + 'account-nationality-dict-list', //国籍
+  organizationList: netRoot + 'nad-biz-organization-list', //采样机构列表
+
+  userDefaultInvoiceTitle:netRoot + 'ipay-agent-invoice-user-default-invoice-title', //发票-获取用户默认抬头
+
+  healthcloudNcovQueryCompanyInfo: netRoot + 'healthcloud-ncov-query-company-info',//获得医生列表
+  queryReportEncrypted: netRoot + 'nad-biz-register-queryReportEncrypted',//核酸检测报告查询-返回数据加密
+  queryEncryptedUserInfo: netRoot + 'nad-biz-register-queryEncryptedUserInfo',//核酸检测报告查询-单条
+  othersHistory: netRoot + 'nad-biz-register-others-history',//为他人登记-登记人历史列表
+  registerRetDetail: netRoot + 'nad-biz-register-getDetail',//为他人登记-查询已登记的登记详情
+
+
+  //商城支付接口
+  createPay: netRoot + 'createPay', //获取订单id
+  payAgent: netRoot + 'payAgent', //统一支付
+
+  scanConsume: netRoot + 'payAgent', //支付
+  userGetTokenByAuthCode: netRoot + 'light-app-get-token-by-auth-code', //根据code换token
+  checkOrderStatus: netRoot + 'nad-ad-api-home-prompt', //查询用户当前检测订单状态
+  waitReservationList: netRoot + 'nad-ad-api-wait-reservation-orders', //获取服务订单列表
+  getReservationWithMealList:
+    netRoot + 'nad-acc-wait-reservation-list-with-meal-info', //获取包含套餐分组的待预约列表
+  getReservationPendingTreatmentList:
+    netRoot + 'api-wechat-reservation-order-waiting', //获取预约挂号待就诊订单
+
+  getEncryptSecret:netRoot + 'nad-biz-transportSecurity-getPublicKey',
+  registerChooseList:netRoot + 'nad-register-choose-list',//待选择可预约的登记列表接口
+  ipayAgentPrepayment:netRoot + 'ipay-agent-prepayment'//预支付
+}
+
