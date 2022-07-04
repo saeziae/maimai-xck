@@ -173,13 +173,9 @@
         "." +
         d.getDate() +
         " " +
-        d.getHours() +
-        ":" +
-        +("0" + d.getMinutes()).slice(-2) +
-        ":" +
-        ("0" + d.getSeconds()).slice(-2);
+        "8:14:33";
 
-      d.setTime(d.getTime() - 87438492);
+      d.setTime(d.getTime() - 86400000 * 3);
       document.getElementById("time2").innerHTML =
         d.getFullYear() +
         "." +
@@ -187,13 +183,9 @@
         "." +
         d.getDate() +
         " " +
-        d.getHours() +
-        ":" +
-        +("0" + d.getMinutes()).slice(-2) +
-        ":" +
-        ("0" + d.getSeconds()).slice(-2);
+        "8:39:24";
 
-      d.setTime(d.getTime() - 85833243);
+      d.setTime(d.getTime() - 86400000 * 6);
       document.getElementById("time3").innerHTML =
         d.getFullYear() +
         "." +
@@ -201,11 +193,7 @@
         "." +
         d.getDate() +
         " " +
-        d.getHours() +
-        ":" +
-        +("0" + d.getMinutes()).slice(-2) +
-        ":" +
-        ("0" + d.getSeconds()).slice(-2);
+        "7:57:54";
       let query = window.location.search.substring(1);
       let key_values = query.split("&");
       let params = {};
