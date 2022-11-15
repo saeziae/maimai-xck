@@ -1,0 +1,15 @@
+{
+  "name": "场所码",
+  "short_name": "场所码",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fff",
+  "description": "场所码",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "600x600",
+      "type": "image/png"
+    }
+  ]
+}

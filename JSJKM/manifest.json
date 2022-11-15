@@ -1,0 +1,15 @@
+{
+  "name": "苏康码 Pro",
+  "short_name": "苏康码",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fff",
+  "description": "苏康码 Pro",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "600x600",
+      "type": "image/png"
+    }
+  ]
+}

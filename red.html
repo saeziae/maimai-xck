@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html class="h-100" lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>舞萌大数据行程卡</title>
+    <link href="assets/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      p {
+        color: white;
+      }
+    </style>
+  </head>
+  <body class="d-flex flex-column h-100">
+    <main style="background-color: #e63b00">
+      <div class="container-fluid">
+        <div align="center">
+          <img width="100%" src="assets/header.png" />
+          <div class="card" style="width: 18rem">
+            <div class="card-body">
+              <strong>114***1919的动态行程卡<br /></strong>
+              <strong class="text-muted"
+                >更新于：<span id="time"></span
+              ></strong>
+              <img width="100%" src="assets/usao.gif" />
+              <hr />
+              <div style="text-align: left">
+                <strong
+                  ><span class="text-muted">您于前十四天内：</span>🐍🐳</strong
+                >
+              </div>
+            </div>
+          </div>
+          <div style="margin-top: 30px; margin-bottom: 30px">
+            <p class="small">
+              结果包含您在前7天内到访的区域与停留4PC以上的国行区域
+              <br />色卡仅对到访地作提醒，不关联健康状况
+            </p>
+            <p>本服务联合提供</p>
+            <img
+              style="width: 28rem; max-width: 100%"
+              src="assets/footer.png"
+            />
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer" style="background-color: white">
+      <div class="row justify-content-between" style="margin: 10px">
+        <div class="col-6">
+          <div style="font-weight: bold">一证通查来了！</div>
+          <div style="font-size: 0.8rem">立即点击进入</div>
+        </div>
+        <div
+          class="col-6"
+          style="
+            background-color: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
+            border-radius: 0.5rem;
+            width: 14rem;
+          "
+        >
+          <div style="font-weight: bold">全国移动电话卡“⼀证通查”</div>
+          <div style="font-size: 0.8rem">防范诈骗，保护你我</div>
+        </div>
+      </div>
+    </footer>
+    <script src="assets/bootstrap.bundle.min.js"></script>
+    <script>
+      var d = new Date();
+      document.getElementById("time").innerHTML =
+        d.getFullYear() +
+        "." +
+        (d.getMonth() + 1) +
+        "." +
+        d.getDate() +
+        " " +
+        d.getHours() +
+        ":" +
+        +("0" + d.getMinutes()).slice(-2) +
+        ":" +
+        ("0" + d.getSeconds()).slice(-2);
+    </script>
+  </body>
+</html>

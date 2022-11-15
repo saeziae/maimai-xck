@@ -1,0 +1,332 @@
+<html lang="en" class="pixel-ratio-2 retina android android-6 android-6-0">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <link rel="manifest" href="manifest.json" />
+    <title>苏康码</title>
+    <link
+      rel="stylesheet"
+      href="./plug/bootstrap-4.3.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./plug/mobileSelect/mobileSelect.css" />
+    <link rel="stylesheet" href="./css/index20220509.css" />
+    <link
+      rel="stylesheet"
+      href="./plug/layer/skin/layer.css"
+      id="layui_layer_skinlayercss"
+    />
+    <link rel="apple-touch-icon" href="./logo.png" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="theme-color" content="#3489eb" />
+  </head>
+
+  <body>
+    <div class="wrapper" id="main">
+      <div class="title-pic">
+        <div class="icons">
+          <div class="icon"></div>
+          <div>苏康码</div>
+        </div>
+      </div>
+      <form class="" id="codes">
+        <div class="pic">
+          <div class="icons">
+            <div class="icon"></div>
+            <div>苏康码<span id="codecolor">·绿码</span></div>
+            <div class="tel" id="code-name"></div>
+          </div>
+          <div class="code-name">
+            <div id="code-tel"></div>
+            <div id="code-id"></div>
+          </div>
+        </div>
+        <div class="gxts-layout">
+          <div>
+            <p class="gxts">
+              若您有近7天中高风险地区旅居史(含境外)请及时信息更新和风险报备。
+            </p>
+          </div>
+        </div>
+        <div class="code-layout">
+          <div class="shadow-layout">
+            <p class="text-center" id="now-time">00-00 00:00:00</p>
+            <div id="ymjz">
+              <div class="codeimg"></div>
+              <div
+                id="output"
+                aria-label="绿码"
+                role="img"
+                style="cursor: pointer"
+                class=""
+              ></div>
+            </div>
+            <div class="uncityData">
+              <div class="tips">
+                <p class="green" id="codes-text"></p>
+              </div>
+              <p id="remainDays"></p>
+              <p id="rjmj"></p>
+              <p id="jjgl"></p>
+            </div>
+          </div>
+        </div>
+        <div class="slider-layout" id="codes">
+          <div class="stop-center" id="slider-sz" style="left: -100vw">
+            <div class="slider-left">
+              <div class="hs-list">
+                <div class="shadow-layout">
+                  <div id="hs-list" class="border-bottom">
+                    <div><span>采样点：</span><span id="loca"></span></div>
+                    <div>
+                      <span>采样时间：</span><span id="hesuanTime"></span>
+                    </div>
+                    <div>
+                      <span>检测结果：</span
+                      ><span style="font-weight: bold; color: rgb(0, 201, 2)"
+                        >阴性</span
+                      >
+                    </div>
+                  </div>
+                  <p class="hs-tip">
+                    数据来源：江苏省卫生健康委员会，反映近30天内最近一次核酸检测情况，数据在不断汇聚和完善中。
+                  </p>
+                </div>
+                <div class="hsym-shadow-layout">
+                  <div class="slider-btn" id="hsjcJSBtn">
+                    <div class="hs-detail"></div>
+                    核酸检测所有信息
+                  </div>
+                </div>
+                <div class="hsym-shadow-layout hs-goback">
+                  <div class="slider-btn">
+                    <div class="hsym-back"></div>
+                    返回主页面
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slider-center">
+              <div class="hsym-layout uncityData">
+                <div class="hs-layout">
+                  <div
+                    class="shadow-layout-hsym hs48hours-border"
+                    id="hs-layout"
+                  >
+                    <div class="hsym-title">核酸(省内)</div>
+                    <div class="hsym-contont" id="hs-content">
+                      <div class="hs48hours">
+                        <div>72</div>
+                        <div>小时<br />阴性</div>
+                      </div>
+                    </div>
+                    <div class="hsym-footer">
+                      <div class="turn-right-icon"></div>
+                      <span id="hs-footer">右滑查看</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="ym-layout">
+                  <div class="shadow-layout-hsym ym3-border" id="ym-layout">
+                    <div class="hsym-title">新冠疫苗</div>
+                    <div class="hsym-contont" id="ym-content">
+                      <div class="ym-result">已加强接种</div>
+                    </div>
+                    <div class="hsym-footer">
+                      <span id="ym-footer">左滑查看</span>
+                      <div class="turn-left-icon"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="xingcheng uncityData">
+                <div class="shadow-layout" id="xingchengBtn">
+                  <div class="xingcheng-layout">
+                    <div class="xingcheng-pic"></div>
+                    <div>通信大数据行程卡</div>
+                  </div>
+                </div>
+              </div>
+              <div class="bottom-layout uncityData">
+                <div class="shadow-layout">
+                  <div class="fxbb">
+                    <div class="fxsb-layout border-right" id="goAdd">
+                      <div class="bottoms-pic addhea"></div>
+                      <div class="fxsb-center">
+                        <p class="fxsb-right-top">风险报备</p>
+                      </div>
+                    </div>
+                    <div class="fxsb-layout" id="reSubmit">
+                      <div class="bottoms-pic updata"></div>
+                      <div class="fxsb-center">
+                        <p class="fxsb-right-top">信息更新</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bottoms-btns">
+                    <div id="addChildBtn">
+                      <div class="bottoms-pic addchild"></div>
+                      <p>家庭成员</p>
+                    </div>
+                    <div id="hsjcBtn">
+                      <div class="bottoms-pic kangti"></div>
+                      <p>核酸/抗体<br />检测查询(全国)</p>
+                    </div>
+                    <div id="xgymqgBtn">
+                      <div class="bottoms-pic yimiao"></div>
+                      <p>新冠疫苗<br />接种查询(全国)</p>
+                    </div>
+                    <div id="queryChinaBtn">
+                      <div class="bottoms-pic guo"></div>
+                      <p>国家政务服务<br />平台健康码</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="gwyxckcx uncityData">
+                <div class="shadow-layout">
+                  <div class="gwyxckcx-layout">
+                    <div class="gwyxck-btn-layout">
+                      <div class="gwyxck-btn hide">点击核验</div>
+                    </div>
+                    <div class="gwyxckcx-center">
+                      <p class="gwyxckcx-right-top gwyxck-name">行程卡查询</p>
+                      <p class="gwyxck-btns hide">今日未核验</p>
+                      <p class="gwyxck-tip1">
+                        您7天内未到访过中高风险地区所在城市
+                      </p>
+                      <p class="gwyxck-tip2 hide">
+                        您7天内到达或途径过中高风险地区所在城市(不表示实际到访过这些中高风险地区)
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p class="sjly">
+                <a
+                  href="http://www.jszwfw.gov.cn/jmopen/webapp/html5/sjly/index.html"
+                  >数据来源:全国一体化政务服务平台、个人申报信息和江苏省公共管理机构。</a
+                >
+              </p>
+              <div class="jsm-footer">
+                <p class="code-footer" id="czsm" style="color: #007bff">
+                  操作说明
+                </p>
+                <p class="code-footer">本服务由江苏省疾病预防控制中心提供</p>
+                <p class="code-footer">--- 服务热线：12345 ---</p>
+              </div>
+            </div>
+            <div class="slider-right">
+              <div class="ym-list">
+                <div class="shadow-layout">
+                  <div class="xgym-modal"></div>
+                  <p class="hs-tip">
+                    数据来源：江苏省预防接种综合服务管理信息系统，仅可查询江苏省内的新冠疫苗接种信息。
+                  </p>
+                </div>
+                <div class="hsym-shadow-layout ym-goback">
+                  <div class="slider-btn">
+                    <div class="hsym-back"></div>
+                    返回主页面
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div id="allHesuan" style="display: none">
+      <button type="button" class="btn btn-outline-secondary" id="closeHesuan">
+        返回
+      </button>
+      <iframe
+        id="allHesuanPage"
+        src=""
+        frameborder="0"
+        style="height: 100%; width: 100%"
+      ></iframe>
+    </div>
+
+    <script src="./plug/jquery/jquery.min.js"></script>
+    <script src="./plug/jquery.qrcode.min.js"></script>
+    <script src="./plug/bootstrap-4.3.1/js/bootstrap.min.js"></script>
+    <script src="./plug/common.js"></script>
+    <script src="./plug/requireParams.js"></script>
+
+    <script>
+      jQuery(function () {
+        $("#output").qrcode({
+          render: "canvas",
+          width: 250,
+          height: 250,
+          background: "#FFFFFF",
+          foreground: "#008000",
+          correctLevel: 3,
+          src: "src/img3.png",
+          text: "https://www.bilibili.com/video/av80433022/?spm_id_from=333.788.recommend_more_video.1&vd_source=nevergonnagiveyouup",
+        });
+      });
+      const query = new URLSearchParams(location.search);
+      $("#loca").text(query.get("loca"));
+      $("#code-name").text(query.get("name"));
+      $("#code-tel").text(query.get("tel"));
+      $("#code-id").text(query.get("id"));
+      $("#loca").text(query.get("loca"));
+      if (query.get("overwrite")) {
+        for (const key of ["name", "id", "tel"]) {
+          if (!query.get(key)) continue;
+          $("#" + key)
+            .text(query.get(key))
+            .css("background-color", "#3489eb");
+        }
+      }
+
+      const hesuanTime = new Date(new Date().getTime() - 1000 * 60 * 60 * 24);
+      hesuanTime.setHours(getFixedIntInclusive(10, 18));
+      hesuanTime.setMinutes(getFixedIntInclusive(1, 59, 2));
+      $("#hesuanTime").text(hesuanTime.format("yyyy-MM-dd hh:mm"));
+
+      $("#hs-layout").click(() => $("#slider-sz").css("left", "0vw"));
+      $(".hs-goback").click(() => $("#slider-sz").css("left", "-100vw"));
+      $("#hsjcJSBtn").click(() => {
+        $("#main").hide();
+        $("#allHesuan").show();
+        $("iframe#allHesuanPage").attr("src", "../NA/JS/" + location.search);
+      });
+      $("#closeHesuan").click(() => {
+        $("#allHesuan").hide();
+        $("#main").show();
+        $("iframe#allHesuanPage").attr("src", "");
+      });
+
+      var checkTime = function (i) {
+        if (i < 10) {
+          i = "0" + i;
+        }
+        return i;
+      };
+      var showtime = function () {
+        var nowdate = new Date();
+        var year = nowdate.getFullYear(),
+          month = nowdate.getMonth() + 1,
+          date = nowdate.getDate(),
+          h = nowdate.getHours(),
+          m = nowdate.getMinutes(),
+          s = nowdate.getSeconds(),
+          h = checkTime(h),
+          m = checkTime(m),
+          s = checkTime(s);
+        return month + "-" + date + " " + h + ":" + m + ":" + s;
+      };
+      var div = document.getElementById("now-time");
+      setInterval(function () {
+        div.innerHTML = showtime();
+      }, 1000);
+    </script>
+  </body>
+</html>

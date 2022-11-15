@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>核酸检测结果查询</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./resfiles_files/weui.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./resfiles_files/jquery-weui.css"
+    />
+    <link rel="stylesheet" type="text/css" href="./resfiles_files/common.css" />
+    <link rel="stylesheet" type="text/css" href="./resfiles_files/main.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./resfiles_files/mescroll.css"
+    />
+    <style>
+      .order-btn-box span {
+        margin-left: 0;
+        width: 2rem;
+      }
+
+      .mescroll-downwarp {
+        background-color: #f4f4f4 !important;
+      }
+
+      .reservation-box {
+        margin: 0;
+      }
+
+      .reservation-box {
+        width: 100%;
+      }
+
+      .reservation-box:not(:first-child) {
+        margin-top: 0.533333rem;
+      }
+
+      .mescroll {
+        position: fixed;
+        /* top: 1.7rem; */
+        top: 1.7rem;
+        bottom: 0.533333rem;
+        height: auto;
+        /*如设置bottom:50px,则需height:auto才能生效*/
+        width: 100%;
+        left: 50%;
+        margin-left: -4.4rem;
+      }
+
+      .weui-toast--text {
+        width: 5.5rem;
+      }
+
+      .myorder-item {
+        margin-bottom: 0.266667rem;
+      }
+
+      .itemTop {
+        padding: 0.4rem 0.633333rem 0.2rem;
+        font-size: 14px;
+        color: #333;
+      }
+
+      .custom-nav span {
+        width: 33.33%;
+        font-size: 16px;
+        color: #999;
+      }
+
+      .custom-nav span.active {
+        border-bottom: none;
+      }
+
+      .custom-nav span.active b {
+        color: #0cb7f5;
+        display: inline-block;
+        line-height: 1.093333rem;
+        height: 1.093333rem;
+        border-bottom: solid 0.08rem #0cb7f5;
+      }
+
+      .myorder-item li {
+        padding: 0.1rem 0 0.186667rem;
+      }
+
+      .myorder-item li label {
+        width: 4em;
+        display: inline-block;
+      }
+
+      .myorder-item li span {
+        color: #333;
+        width: 70%;
+        display: inline-block;
+        vertical-align: text-top;
+      }
+
+      .order-btn-box span {
+        /*margin-left:0.266667rem;*/
+        /*width: auto;*/
+        padding-left: 0.266667rem;
+        padding-right: 0.266667rem;
+      }
+
+      #qrcode img {
+        width: 60%;
+        position: absolute;
+        top: 45%;
+        margin-top: -30%;
+        left: 50%;
+        margin-left: -30%;
+      }
+
+      #layer .gPopupLayer {
+        text-align: center;
+        margin-left: 10%;
+        top: 10%;
+        width: 80%;
+        position: absolute;
+        height: 60vh;
+        border-radius: 0.4rem;
+        background-color: #fff;
+      }
+
+      #layer .tip {
+        font-size: 14px;
+        color: #666;
+        width: 100%;
+        position: absolute;
+        top: 72%;
+        left: 50%;
+        margin-left: -50%;
+      }
+
+      #layer .closePng {
+        position: absolute;
+        top: 108%;
+        left: 50%;
+        width: 1.2rem;
+        margin-left: -0.6rem;
+      }
+
+      .reservation-box .head-con:before {
+        left: 50%;
+        margin-left: -0.466667rem;
+      }
+
+      .reservation-box .tip-con {
+        padding: 0;
+      }
+
+      .tip-con .item-box .item {
+        padding: 0.1rem 0 0.3rem;
+      }
+
+      .item-box .item .r {
+        text-align: right;
+      }
+
+      .r img {
+        height: 0.426667rem;
+        width: auto;
+        vertical-align: middle;
+        margin-top: -2px;
+      }
+
+      .topLine {
+        background-color: #fff5be;
+        font-size: 14px;
+        border: 1px solid #fac724;
+        color: #ffa73b;
+        padding-top: 0.266667rem;
+        padding-bottom: 0.266667rem;
+        text-align: center;
+      }
+
+      .checkMore {
+        color: #0cb7f5;
+        width: 8.8rem;
+        text-align: center;
+        font-size: 14px;
+        line-height: 1.5;
+        margin-top: 0.4rem;
+      }
+
+      .checkMore.grayColor {
+        color: gray;
+        font-size: 12px;
+      }
+
+      .checkMoreNoData {
+        width: 9em;
+        border: 1px solid #ccc;
+        height: 1rem;
+        border-radius: 0.066667rem;
+        font-size: 14px;
+        line-height: 1rem;
+        color: #666;
+        left: 50vw;
+        transform: translateX(-50%);
+        position: absolute;
+        bottom: -1.5rem;
+      }
+
+      .custom-nodata {
+        z-index: 99;
+      }
+
+      .hideStyle {
+        display: none;
+      }
+      .popup-wrap {
+        position: fixed;
+      }
+      .popup-con-middle {
+        position: fixed;
+        top: 50%;
+      }
+
+      .r {
+        color: #333;
+      }
+    </style>
+    <meta
+      name="viewport"
+      content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"
+    />
+    <meta
+      name="viewport"
+      content="target-densitydpi=device-dpi, width=480px, user-scalable=no"
+    />
+  </head>
+  <body style="font-size: 12px">
+    <div class="container">
+      <p class="topLine">
+        本查询服务由<span id="city"></span>卫生健康委员会提供
+      </p>
+      <div class="reservation-box">
+        <div class="head-con">
+          <h1></h1>
+        </div>
+        <div class="item-box">
+          <div class="item nameStyle" style="margin-top: 0.293333rem">
+            <label class="l">姓名</label>
+            <span class="r"><b id="name"></b></span>
+          </div>
+          <div class="item">
+            <label class="l">证件类型</label>
+            <span class="r">身份证</span>
+          </div>
+          <div class="item">
+            <label class="l">证件号码</label>
+            <span class="r cardSpan" id="id"></span>
+          </div>
+          <div class="item">
+            <label class="l">样本编码</label>
+            <span class="r">1145141919</span>
+          </div>
+          <div class="item">
+            <label class="l">采样时间</label>
+            <span class="r" id="time"></span>
+          </div>
+          <div class="item">
+            <label class="l">检测机构</label>
+            <span class="r" id="ins"></span>
+          </div>
+          <div class="item">
+            <label class="l">检测时间</label>
+            <span class="r" id="date"></span>
+          </div>
+          <div class="item">
+            <label class="l">检测项目</label>
+            <span class="r">核酸</span>
+          </div>
+        </div>
+        <p class="gElecline"></p>
+        <div class="tip-con">
+          <div class="item-box">
+            <div class="item">
+              <label class="l" style="color: #333">检测结果</label>
+              <span class="r">ORF1a/b阴性，N基因阴性</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      type="text/javascript"
+      src="./resfiles_files/flexible.js.download"
+    ></script>
+    <script
+      type="text/javascript"
+      src="./resfiles_files/jquery.min.js.download"
+    ></script>
+    <script src="./resfiles_files/jquery-weui.js.download"></script>
+    <script src="./resfiles_files/native.js.download"></script>
+    <script src="./resfiles_files/net.js.download"></script>
+    <script src="./resfiles_files/loading.js.download"></script>
+    <script src="./resfiles_files/common.js.download"></script>
+    <script
+      type="text/javascript"
+      src="./resfiles_files/mescroll.min.js.download"
+    ></script>
+    <script
+      type="text/javascript"
+      src="./resfiles_files/qrcode.min.js.download"
+    ></script>
+    <script
+      type="text/javascript"
+      src="./resfiles_files/fastclick.min.js.download"
+    ></script>
+    <script src="./resfiles_files/sm2.js.download"></script>
+
+    <div
+      id="toptip"
+      style="
+        color: rgb(255, 255, 255);
+        position: fixed;
+        top: -1rem;
+        width: 100%;
+        height: 0.8rem;
+        line-height: 0.8rem;
+        text-align: center;
+        font-size: 0.35rem;
+        transition: top 0.2s ease 0s;
+        z-index: 9999;
+        background-color: rgb(246, 56, 58);
+      "
+    ></div>
+    <script>
+      var d = new Date();
+      document.getElementById("date").innerHTML =
+        d.getFullYear() +
+        "." +
+        (d.getMonth() + 1) +
+        "." +
+        d.getDate() ;
+      d.setTime(d.getTime() - 86400000);
+      document.getElementById("time").innerHTML =
+        d.getFullYear() +
+        "." +
+        (d.getMonth() + 1) +
+        "." +
+        d.getDate() +
+        " " +
+        d.getHours() +
+        ":" +
+        +("0" + d.getMinutes()).slice(-2) +
+        ":" +
+        ("0" + d.getSeconds()).slice(-2);
+      let query = window.location.search.substring(1);
+      let key_values = query.split("&");
+      let params = {};
+      key_values.map((key_val) => {
+        let key_val_arr = key_val.split("=");
+        params[key_val_arr[0]] = decodeURIComponent(key_val_arr[1]);
+      });
+      document.getElementById("city").innerHTML = params["city"];
+      document.getElementById("name").innerHTML = params["name"];
+      document.getElementById("id").innerHTML = params["id"];
+      document.getElementById("ins").innerHTML = params["ins"];
+    </script>
+  </body>
+</html>
